@@ -1,20 +1,15 @@
 #pragma once
 #include<SFML/Graphics.hpp>
-
+#include "globalvars.h"
 sf::View view;
-
-sf::View GetPlayerCoordinateView(float x, float y)
+extern double speed;
+sf::View GetPlayerCoordinateView(double x, double y) // Функция фокуса камеры на координатах игрока
 {
-	int tempX = x, tempY = y;
-	if (x < 318) tempX = 320;
-	if (y < 240) tempY = 240;
-	if (y < 554) tempY = 554;
-
 	view.setCenter(x + 100, y);
 	return view;
 }
 
-sf::View ViewMap(float time) // функция для перемещения камеры за время
+sf::View ViewMap(double time) // перемещение камеры
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
